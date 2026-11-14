@@ -345,6 +345,31 @@ footer {
   text-align: center;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 1.75rem;
+  }
+
+  .card {
+    padding: 1.1rem;
+  }
+
+  .resumo {
+    grid-template-columns: 1fr;
+  }
+
+  .acoes-os button,
+  .acoes-os .botao-link {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
 @media print {
   body {
     background: #ffffff;
