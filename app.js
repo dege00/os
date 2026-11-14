@@ -110,14 +110,16 @@ function renderizar(dados) {
         <span class="selo ${tomStatus(dados.status_label)}">${escapar(dados.status_label)}</span>
       </div>
       ${telefone ? `<p><a href="${telefone}" target="_blank" rel="noopener">Falar com a loja no WhatsApp</a></p>` : ''}
-    <table>
-      <tr><th>Cliente</th><td>${escapar(dados.cliente)}</td></tr>
-      <tr><th>Aparelho</th><td>${escapar(dados.aparelho)}</td></tr>
-      <tr><th>Defeito</th><td>${escapar(dados.defeito)}</td></tr>
-      <tr><th>Previsão de entrega</th><td>${dataBR(dados.previsao_entrega)}</td></tr>
-      <tr><th>Total</th><td>${total}</td></tr>
-      <tr><th>Garantia</th><td>${escapar(dados.garantia_dias)} dias</td></tr>
-    </table>
+      <div class="resumo">
+        <div><span>Previsão de entrega</span><strong>${dataBR(dados.previsao_entrega)}</strong></div>
+        <div><span>Total</span><strong>${total}</strong></div>
+        <div><span>Garantia</span><strong>${escapar(dados.garantia_dias)} dias</strong></div>
+      </div>
+      <table>
+        <tr><th>Cliente</th><td>${escapar(dados.cliente)}</td></tr>
+        <tr><th>Aparelho</th><td>${escapar(dados.aparelho)}</td></tr>
+        <tr><th>Defeito</th><td>${escapar(dados.defeito)}</td></tr>
+      </table>
 
     <h3>Itens</h3>
     ${itens.length ? `<table>
