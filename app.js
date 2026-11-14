@@ -83,11 +83,14 @@ function renderizar(dados) {
       <td>${brl(item.subtotal)}</td>
     </tr>`).join('')
 
-  const linhasHistorico = historico.map((item) => `
-    <tr>
-      <td>${escapar(item.label)}</td>
-      <td>${dataHoraBR(item.em)}</td>
-    </tr>`).join('')
+  const linhasHistorico = historico.map((item, indice) => `
+    <li class="evento${indice === 0 ? ' atual' : ''}">
+      <span class="ponto" aria-hidden="true"></span>
+      <div>
+        <strong>${escapar(item.label)}</strong>
+        <small>${dataHoraBR(item.em)}</small>
+      </div>
+    </li>`).join('')
 
   const galeria = fotos.map((foto) => {
     const url = escapar(urlMidia(foto.url))
@@ -123,10 +126,7 @@ function renderizar(dados) {
     </table>` : '<p>Nenhum item informado.</p>'}
 
     <h3>Histórico</h3>
-    ${historico.length ? `<table>
-      <thead><tr><th>Status</th><th>Quando</th></tr></thead>
-      <tbody>${linhasHistorico}</tbody>
-    </table>` : '<p>Sem histórico.</p>'}
+    ${historico.length ? `<ol class="linha-tempo">${linhasHistorico}</ol>` : '<p>Sem histórico.</p>'}
 
     <h3>Fotos</h3>
     ${galeria || '<p>Nenhuma foto disponível.</p>'}

@@ -159,6 +159,67 @@ a {
   color: #334155;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px solid var(--linha);
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  color: var(--suave);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.linha-tempo {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.evento {
+  position: relative;
+  margin-left: 0.4rem;
+  padding: 0 0 1.1rem 1.5rem;
+  border-left: 2px solid var(--linha);
+}
+
+.evento:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+
+.ponto {
+  position: absolute;
+  top: 0.3rem;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--linha);
+}
+
+.evento.atual .ponto {
+  background: var(--marca);
+  box-shadow: 0 0 0 4px #dbeafe;
+}
+
+.evento strong {
+  display: block;
+}
+
+.evento small {
+  color: var(--suave);
+}
+
 #form-consulta p {
   margin: 0 0 1rem;
 }
