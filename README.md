@@ -1,6 +1,6 @@
 # OS - acompanhamento público
 
-Página estática, em HTML puro e sem CSS, para o cliente consultar uma ordem de serviço pelo código público.
+Página estática, sem build, para o cliente consultar uma ordem de serviço pelo código público. Tem layout responsivo e funciona em qualquer navegador moderno.
 
 ## Como usar
 
@@ -16,6 +16,14 @@ index.html?token=CODIGO_DA_OS
 ```
 
 O endereço da API fica salvo no `localStorage` do navegador.
+
+## Recursos
+
+- Status da OS com cores para facilitar a leitura.
+- Resumo com previsão de entrega, total e garantia.
+- Histórico em linha do tempo, do evento mais recente ao mais antigo.
+- Itens, fotos e contato direto com a loja pelo WhatsApp.
+- Botões para copiar o link de acompanhamento e imprimir a consulta.
 
 ## API usada
 
