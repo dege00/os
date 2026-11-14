@@ -93,6 +93,72 @@ a {
   font-size: 1.1rem;
 }
 
+.resultado-os {
+  padding: 1.5rem;
+}
+
+.os-topo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.os-topo h2 {
+  margin: 0.15rem 0 0;
+  font-size: 1.35rem;
+}
+
+.os-numero {
+  margin: 0;
+  color: var(--suave);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.selo {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.selo.ok {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.selo.erro {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.selo.pronto {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.selo.andamento {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.selo.atencao {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.selo.neutro {
+  background: #f1f5f9;
+  color: #334155;
+}
+
 #form-consulta p {
   margin: 0 0 1rem;
 }

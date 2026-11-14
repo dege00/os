@@ -59,6 +59,16 @@ function mostrarErro(mensagem) {
   $('erro').textContent = mensagem
 }
 
+function tomStatus(label) {
+  const texto = String(label || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+  if (/(entreg|finaliz|conclu|retirad)/.test(texto)) return 'ok'
+  if (/(cancel|recus|sem conserto)/.test(texto)) return 'erro'
+  if (/(pronto|disponivel)/.test(texto)) return 'pronto'
+  if (/(andamento|reparo|execu|bancada|diagnos|teste)/.test(texto)) return 'andamento'
+  if (/(orcamento|aprov|aguardando)/.test(texto)) return 'atencao'
+  return 'neutro'
+}
+
 function renderizar(dados) {
   const itens = dados.itens || []
   const fotos = dados.fotos || []
@@ -88,9 +98,15 @@ function renderizar(dados) {
   }).join('')
 
   $('resultado').innerHTML = `
-    <h2>${escapar(dados.loja)}</h2>
-    <p><strong>OS #${escapar(dados.numero)}</strong> — ${escapar(dados.status_label)}</p>
-    ${telefone ? `<p><a href="${telefone}" target="_blank" rel="noopener">Falar com a loja no WhatsApp</a></p>` : ''}
+    <section class="card resultado-os">
+      <div class="os-topo">
+        <div>
+          <p class="os-numero">OS #${escapar(dados.numero)}</p>
+          <h2>${escapar(dados.loja)}</h2>
+        </div>
+        <span class="selo ${tomStatus(dados.status_label)}">${escapar(dados.status_label)}</span>
+      </div>
+      ${telefone ? `<p><a href="${telefone}" target="_blank" rel="noopener">Falar com a loja no WhatsApp</a></p>` : ''}
     <table>
       <tr><th>Cliente</th><td>${escapar(dados.cliente)}</td></tr>
       <tr><th>Aparelho</th><td>${escapar(dados.aparelho)}</td></tr>
@@ -114,6 +130,7 @@ function renderizar(dados) {
 
     <h3>Fotos</h3>
     ${galeria || '<p>Nenhuma foto disponível.</p>'}
+    </section>
   `
   $('resultado').hidden = false
 }
