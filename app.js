@@ -56,7 +56,20 @@ function linkWhatsApp(telefone) {
 }
 
 function mostrarErro(mensagem) {
-  $('erro').textContent = mensagem
+  const alvo = $('erro')
+  alvo.textContent = mensagem
+  alvo.hidden = !mensagem
+}
+
+async function copiarLink() {
+  try {
+    await navigator.clipboard.writeText(location.href)
+    const botao = $('copiar-link')
+    botao.textContent = 'Link copiado'
+    setTimeout(() => { botao.textContent = 'Copiar link' }, 2000)
+  } catch {
+    mostrarErro('Não foi possível copiar o link.')
+  }
 }
 
 function tomStatus(label) {
@@ -109,7 +122,11 @@ function renderizar(dados) {
         </div>
         <span class="selo ${tomStatus(dados.status_label)}">${escapar(dados.status_label)}</span>
       </div>
-      ${telefone ? `<p><a href="${telefone}" target="_blank" rel="noopener">Falar com a loja no WhatsApp</a></p>` : ''}
+      <div class="acoes-os">
+        ${telefone ? `<a class="botao-link" href="${telefone}" target="_blank" rel="noopener">Falar no WhatsApp</a>` : ''}
+        <button type="button" class="secundario" id="copiar-link">Copiar link</button>
+        <button type="button" class="secundario" id="imprimir">Imprimir</button>
+      </div>
       <div class="resumo">
         <div><span>Previsão de entrega</span><strong>${dataBR(dados.previsao_entrega)}</strong></div>
         <div><span>Total</span><strong>${total}</strong></div>
@@ -134,6 +151,8 @@ function renderizar(dados) {
     ${galeria || '<p>Nenhuma foto disponível.</p>'}
     </section>
   `
+  $('copiar-link').addEventListener('click', copiarLink)
+  $('imprimir').addEventListener('click', () => window.print())
   $('resultado').hidden = false
 }
 

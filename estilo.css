@@ -246,6 +246,27 @@ thead th {
   font-size: 1.05rem;
 }
 
+.acoes-os {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.botao-link {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  border-radius: 10px;
+  background: #16a34a;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.botao-link:hover {
+  filter: brightness(1.08);
+}
+
 #form-consulta p {
   margin: 0 0 1rem;
 }
@@ -322,4 +343,24 @@ footer {
   color: var(--suave);
   font-size: 0.85rem;
   text-align: center;
+}
+
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  .topo,
+  .hero,
+  .card:not(.resultado-os),
+  footer,
+  .acoes-os {
+    display: none !important;
+  }
+
+  .resultado-os {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
 }
