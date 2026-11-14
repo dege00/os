@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OS - Acompanhamento</title>
+</head>
+<body>
+  <h1>OS</h1>
+
+  <h2>Acompanhar ordem de serviço</h2>
+  <form id="form-consulta">
+    <p>
+      <label>Endereço da API<br>
+        <input id="api-base" type="text" inputmode="url" placeholder="https://sua-api.com" required>
+      </label>
+    </p>
+    <p>
+      <label>Código da OS<br>
+        <input id="token" type="text" autocapitalize="off" autocomplete="off" placeholder="Código do link de acompanhamento" required>
+      </label>
+    </p>
+    <p>
+      <button type="submit" id="consultar">Consultar</button>
+      <button type="button" id="atualizar" disabled>Atualizar</button>
+    </p>
+  </form>
+
+  <p id="erro" role="alert"></p>
+  <p id="carregando" hidden>Carregando…</p>
+  <div id="resultado" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
