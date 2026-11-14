@@ -6,31 +6,48 @@
   <meta name="description" content="Consulte o andamento da sua ordem de serviço pelo código informado pela assistência técnica.">
   <meta name="theme-color" content="#0f172a">
   <title>OS - Acompanhamento</title>
+  <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-  <h1>OS</h1>
+  <header class="topo">
+    <div class="wrap">
+      <a class="marca" href="./">OS <span>/ acompanhamento</span></a>
+      <small>Consulta pública de ordem de serviço</small>
+    </div>
+  </header>
 
-  <h2>Acompanhar ordem de serviço</h2>
-  <form id="form-consulta">
-    <p>
-      <label>Endereço da API<br>
-        <input id="api-base" type="text" inputmode="url" placeholder="https://sua-api.com" required>
-      </label>
-    </p>
-    <p>
-      <label>Código da OS<br>
-        <input id="token" type="text" autocapitalize="off" autocomplete="off" placeholder="Código do link de acompanhamento" required>
-      </label>
-    </p>
-    <p>
-      <button type="submit" id="consultar">Consultar</button>
-      <button type="button" id="atualizar" disabled>Atualizar</button>
-    </p>
-  </form>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Acompanhe sua ordem de serviço</h1>
+      <p>Informe o código recebido da assistência para ver o andamento do reparo.</p>
+    </section>
 
-  <p id="erro" role="alert"></p>
-  <p id="carregando" hidden>Carregando…</p>
-  <div id="resultado" hidden></div>
+    <section class="card" aria-labelledby="titulo-consulta">
+      <h2 class="titulo-card" id="titulo-consulta">Consultar OS</h2>
+
+      <form id="form-consulta">
+        <p>
+          <label for="api-base">Endereço da API</label>
+          <input id="api-base" type="text" inputmode="url" placeholder="https://sua-api.com" required>
+        </p>
+        <p>
+          <label for="token">Código da OS</label>
+          <input id="token" type="text" autocapitalize="off" autocomplete="off" placeholder="Código do link de acompanhamento" required>
+        </p>
+        <p class="acoes">
+          <button type="submit" id="consultar">Consultar</button>
+          <button type="button" id="atualizar" disabled>Atualizar</button>
+        </p>
+      </form>
+
+      <p id="erro" role="alert" hidden></p>
+      <p id="carregando" hidden>Carregando…</p>
+    </section>
+
+    <div id="resultado" hidden></div>
+  </main>
+
+  <footer class="wrap">Os dados são atualizados diretamente pela assistência técnica.</footer>
 
   <script src="app.js"></script>
 </body>

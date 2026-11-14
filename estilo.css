@@ -1,0 +1,101 @@
+:root {
+  --fundo: #f4f6fb;
+  --superficie: #ffffff;
+  --texto: #0f172a;
+  --suave: #64748b;
+  --linha: #e2e8f0;
+  --marca: #1d4ed8;
+  --raio: 14px;
+  --sombra: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--marca);
+}
+
+.wrap {
+  width: min(960px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.topo {
+  padding: 1rem 0;
+  background: var(--texto);
+  color: #ffffff;
+}
+
+.topo .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.marca {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.marca span {
+  color: #93c5fd;
+  font-weight: 500;
+}
+
+.topo small {
+  color: #cbd5e1;
+}
+
+.hero {
+  padding: 2.5rem 0 1.25rem;
+}
+
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.hero p {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--suave);
+}
+
+.card {
+  margin-bottom: 1.25rem;
+  padding: 1.5rem;
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+}
+
+.titulo-card {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+footer {
+  padding: 2rem 0;
+  color: var(--suave);
+  font-size: 0.85rem;
+  text-align: center;
+}
